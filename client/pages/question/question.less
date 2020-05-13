@@ -1,0 +1,69 @@
+page {
+  background-color: #4ACAEF;
+}
+.card {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  width: 690rpx;
+  height: 700rpx;
+  margin: 100rpx 30rpx 0 30rpx;
+  // box-sizing: border-box;
+  background-color: #fff;
+  // background-color: red;
+  border: solid 3px rgba(207,216,220,0.2);
+  border-radius: 8%;
+  box-shadow: 0px 5px 10px rgba(172,181,185,0.4);
+  .header{
+    display: flex;
+    justify-content: space-between;
+    .index {
+      margin: 20rpx;
+      color: rgba(92,167,186, 1);
+    }
+    .score {
+      font-size: 40rpx;
+      margin: 20rpx 30rpx 0 0;
+      color: rgb(255, 66, 93);
+    }
+  }
+  .question {
+    margin: 20rpx;
+    
+  }
+  .answer {
+    margin: 20rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .item {
+      width: 100%;
+      margin: 20rpx 0;
+      height: 80rpx;
+      line-height: 80rpx;
+      border-radius: 30rpx;
+      text-align: center;
+      background-color: rgba(207,216,220, 1);
+      color: rgb(85, 72, 64);
+    }
+  }
+}
+.option {
+  width: 690rpx;
+  display: flex;
+  justify-content: space-around;
+  margin: 40rpx 30rpx 0 30rpx;
+  // background-color: red;
+  .btn {
+    background-color: rgba(255,252, 153,0.8);
+    width: 250rpx;
+    height: 56rpx;
+    text-align: center;
+    border-radius: 25rpx;
+    color: rgba(85, 72, 64, 1);
+  }
+  .finish {
+    color: rgb(255, 66, 93);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "identify": "../../components/identify/identify",
+    "hot-search": "../../components/hot-search/hot"
+  }
+}

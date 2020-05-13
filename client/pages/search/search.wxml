@@ -1,0 +1,32 @@
+<!-- pages/search.wxml -->
+<view class="container">
+  <view class="card">
+    <view class="input">
+      <picker class="picker" bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <text class="addr">{{array[index]}}</text>
+      </picker>
+      <view class="icon-arrow" ></view>
+      <view class="search">
+        <view class="icon-search"></view>
+        <input value="{{inputValue}}" type="text" placeholder="你是什么垃圾" confirm-type="search" bindinput="bindKeyInput" />
+        <text class="search-btn" bindtap="search">搜索</text>
+      </view>
+    </view>
+    <identify cityIndex="{{index}}" bind:updateTrashData = 'getDataFromIdentify'></identify>
+  </view>
+  <hot-search></hot-search>
+  <view class="item" wx:if="{{showItem}}">
+    <text>{{name}}</text>
+    <text>{{type}}</text>
+    <view class="tips">
+      <text class="title">垃圾投放指南</text>
+      <view class="ps">{{tip}}</view>
+    </view>
+  </view>
+  <view class="item"  wx:if="{{showItem}}">
+    <image class="img" mode="aspectFit" src="{{itemImg}}" alt="" />
+    <text>{{explain}}</text>
+    <text>{{contain}}</text>
+  </view>
+  
+</view>

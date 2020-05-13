@@ -1,0 +1,19 @@
+<!-- pages/search.wxml -->
+<view class="container">
+  <view class="recommend">
+    <view class="recommend-txt">你可以这么问</view>
+    <view class="recommend-content">
+      <view class="recommend-content-item">
+        <image class="img" src="../../assets/image/voice2.png" />
+        <view class="item">玻璃瓶</view>
+      </view>
+    </view>
+  </view>
+  <hot-search></hot-search>
+  <view class="voice">
+    <view class="voice-txt">按下说话</view>
+    <view class="voice-btn"  bindtouchstart="touchStart" bindtouchend="touchEnd">
+      <image class="voice-btn_icon" src="../../assets/image/voice3.png" />
+    </view>
+  </view>
+</view>

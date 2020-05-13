@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="container">
+  <swiper class="swiper"  indicator-dots="true" indicator-active-color="true" autoplay="true">
+    <block wx:for="{{imgSrc}}" wx:key="*this">
+      <swiper-item  class="swiper-item">
+        <image class="swiper-item-img" src="{{item}}" alt="" />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="card">
+    <view class="input">
+      <text class="addr">杭州</text>
+      <view class="icon-arrow"></view>
+      <view class="search" bindtap="goTOSearch">
+        <view class="icon-search"></view>
+        <input type="text" placeholder="你是什么垃圾" />
+      </view>
+    </view>
+    <identify></identify>
+    <view class="question">
+      <view class="text">趣味答题，快来参加吧~</view>
+      <view class="btn" bindtap="goTOQuestion">立刻前往></view>
+    </view>
+  </view>
+  <hot-search></hot-search>
+</view>

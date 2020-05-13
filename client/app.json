@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/question/question",
+    "pages/index/index",
+    "pages/search/search",
+    "pages/voice/voice",
+    "pages/login/login"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "WechatSI": {
+      "version": "0.0.7",
+      "provider": "wx069ba97219f66d99"
+    }
+  }
+}

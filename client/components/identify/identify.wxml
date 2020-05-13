@@ -1,0 +1,11 @@
+<!--components/identify.wxml-->
+
+<view class="content">
+  <view wx:for="{{identifications}}"
+      wx:key="*this" class="identification" 
+      data-name="{{item.name}}"
+      bindtap="handleTap">
+    <image class="img" src="{{item.url}}" />
+    <view class="name" >{{item.name}}</view>
+  </view>
+</view>

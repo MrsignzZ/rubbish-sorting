@@ -1,0 +1,7 @@
+<!--components/hot-search/hot.wxml-->
+<view class="search" wx:if="{{showHistory}}">
+  <view class="search-txt">搜索历史</view>
+  <view class="search-list" >
+    <view class="search-list-item"  wx:for="{{list}}" wx:for-item="item">{{item}}</view>
+  </view>
+</view>
