@@ -1,11 +1,14 @@
 // pages/search.js
+import http from '../../utils/api'
+import { setStorage } from '../../utils/util'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    account: '',
+    password: ''
   },
 
   /**
@@ -35,7 +38,43 @@ Page({
   onHide: function () {
 
   },
-  search() {
-    console.log('search')
+  phoneInput(e) {
+    this.setData({
+      account: e.detail.value
+    })
+  },
+  passwordInput(e) {
+    this.setData({
+      password: e.detail.value
+    })
+  },
+  login() {
+    console.log(this.data.account)
+    console.log(this.data.password)
+    http.login({
+      data: {
+        "account": this.data.account,
+        "password": this.data.password
+      }
+    }).then(res => {
+      console.log(res.token)// token
+      setStorage('TOKEN', res.token)
+      wx.showToast({
+        title: '登录成功'
+      })
+      setTimeout(() => {
+        wx.hideToast()
+        wx.redirectTo({
+          url: '/pages/question/question'
+        })
+      }, 1500);
+    })
+
+  },
+  register() {
+    wx.redirectTo({
+      url: '/pages/register/register'
+    })
   }
+  
 })

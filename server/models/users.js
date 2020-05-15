@@ -7,7 +7,7 @@ const userSchema = new Schema({
   name: { type: String, required: true },
   account: { type: String, required: true },
   password: { type: String, required: true, select: false },
-  city_code: { type: String, required: true }
+  city: { type: String, required: true }
   
   // avatar_url: { type: String },
   // gender: { type: String, enum: ['male', 'female'], default: 'male', required: true },

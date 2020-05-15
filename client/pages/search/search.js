@@ -1,7 +1,7 @@
 // pages/search.js
 import http from '../../utils/api'
 import { trashTypeMap } from "../../utils/config";
-// import { setStorage, getStorage } from "../../utils/util";
+import { setStorage, getStorage, unique } from "../../utils/util";
 Page({
 
   /**
@@ -68,9 +68,7 @@ Page({
     })
 
     if (this.data.inputValue) {
-      this.setStorage(this.data.inputValue)
-      console.log(wx.getStorageSync('HOT_SEARCH'))
-      // console.log('set success'
+      setStorage('HOT_SEARCH', this.data.inputValue)
     }
   },
   // 处理数据 
@@ -156,30 +154,30 @@ Page({
   },
 
 
-  setStorage(value) {
-    let hot = wx.getStorageSync('HOT_SEARCH')
-    if (hot) {
-      wx.setStorage({
-        key: 'HOT_SEARCH',
-        data: this.unique([...hot, value])
-      })
-    } else {
-      wx.setStorage({
-        key: 'HOT_SEARCH',
-        data: [value]
-      })
-    }
-  },
+  // setStorage(value) {
+  //   let hot = wx.getStorageSync('HOT_SEARCH')
+  //   if (hot) {
+  //     wx.setStorage({
+  //       key: 'HOT_SEARCH',
+  //       data: this.unique([...hot, value])
+  //     })
+  //   } else {
+  //     wx.setStorage({
+  //       key: 'HOT_SEARCH',
+  //       data: [value]
+  //     })
+  //   }
+  // },
 
-  getStorage() {
-    return wx.getStorageSync('HOT_SEARCH')
-  },
+  // getStorage() {
+  //   return wx.getStorageSync('HOT_SEARCH')
+  // },
 
-  unique(arr) {
-    if (!Array.isArray(arr)) {
-      console.log('type error!')
-      return
-    }
-    return [...new Set(arr)]
-  }
+  // unique(arr) {
+  //   if (!Array.isArray(arr)) {
+  //     console.log('type error!')
+  //     return
+  //   }
+  //   return [...new Set(arr)]
+  // }
 })

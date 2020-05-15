@@ -12,6 +12,6 @@ router.get('/', find)
 // router.post('/', auth, create)
 router.post('/', auth, create)
 // router.get('/:id', findById)
-router.patch('/:id', auth, checkRankExist, checkRanker, update)
+router.put('/:id', auth, checkRankExist, checkRanker, update)
 
 module.exports = router

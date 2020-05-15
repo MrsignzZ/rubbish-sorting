@@ -1,0 +1,16 @@
+<!-- <view class="card">
+  <view class="question">
+    {{questions[index].title}}
+  </view>
+  <view class="answer">
+    <view class="item" bindtap="handleTap" wx:for="{{questions[index].options}}" wx:for-item="item" wx:for-index="optIndex" data-index="{{optIndex}}">{{item}}</view>
+  </view>
+</view> -->
+<view class="header">排行榜</view>
+<view class="option">
+  <view class="item" wx:for="{{ranks}}" wx:for-index="index" wx:for-item="item">
+    <view class="num">{{index + 1}}</view>
+    <view class="name">{{item.ranker.name}}</view>
+    <view class="score">{{item.rank_score}}</view>
+  </view>
+</view>

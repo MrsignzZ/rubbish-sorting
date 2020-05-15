@@ -21,7 +21,12 @@ Page({
   },
   goTOSearch() {
     wx.navigateTo({
-      url: '../search/search'
+      url: '/pages/search/search'
+    })
+  },
+  goTOQuestion() {
+    wx.navigateTo({
+      url: '/pages/question/question'
     })
   }
 })

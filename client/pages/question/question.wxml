@@ -1,18 +1,19 @@
 <view class="card">
   
   <view class="header">
-    <view class="index">第{{index}}/{{options.length}}题</view>
+    <view class="index">第{{index+1}}/{{questions.length}}题</view>
     <view class="score">总分：{{score}}</view>
   </view>
   <view class="question">
-    下列哪一个是正确的选项？
+    {{questions[index].title}}
   </view>
   <view class="answer">
-    <view class="item" wx:for="{{options}}" wx:for-item="item">{{item}}</view>
+    <view class="item" bindtap="handleTap" wx:for="{{questions[index].options}}" wx:for-item="item" wx:for-index="optIndex" data-index="{{optIndex}}">{{item}}</view>
   </view>
 </view>
 
 <view class="option">
   <view class="btn finish" bindtap="finish">结束</view>
+  <view class="btn" bindtap="rank">排行榜</view>
   <view class="btn next" bindtap="next">下一题</view>
 </view>

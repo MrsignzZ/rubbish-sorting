@@ -6,7 +6,7 @@ class RanksCtl {
     const page = Math.max(ctx.query.page * 1, 1) - 1
     const perPage = Math.max(per_page * 1, 1)
     // const q = new RegExp(ctx.query.q)
-    ctx.body = await Rank.find().limit(perPage).skip(page * perPage)
+    ctx.body = await Rank.find().populate({ path: 'ranker', select: 'name' }).limit(perPage).skip(page * perPage)
   }
   async checkRankExist(ctx, next) {
     const rank = await Rank.findById(ctx.params.id).select('+ranker');
@@ -19,6 +19,11 @@ class RanksCtl {
       rank_score: { type: 'number', required: true },
     })
     console.log('ctx.state',ctx.state)
+    const repeatedRank = await Rank.findOne({ ranker: ctx.state.user._id })
+    console.log('repeatedRank', repeatedRank)
+    if (repeatedRank) {
+      ctx.throw(409, '榜单已存在')
+    }
     const rank = await new Rank({ ...ctx.request.body, ranker: ctx.state.user._id }).save()
     ctx.body = rank
   }

@@ -1,20 +1,20 @@
-function setStorage (value) {
-  let hot = wx.getStorageSync('HOT_SEARCH')
+function setStorage (key, value) {
+  let hot = wx.getStorageSync(key)
   if (hot) {
     wx.setStorage({
-      key: 'HOT_SEARCH',
+      key: key,
       data: unique([...hot, value])
     })
   } else {
     wx.setStorage({
-      key: 'HOT_SEARCH',
+      key: key,
       data: [value]
     })
   }
 }
 
-function getStorage() {
-  return wx.getStorageSync('HOT_SEARCH')
+function getStorage(key) {
+  return wx.getStorageSync(key)
 }
 
 function unique (arr){
@@ -25,7 +25,7 @@ function unique (arr){
   return [...new Set(arr)]
 }
 
-export default {
+module.exports = {
   setStorage,
   getStorage,
   unique

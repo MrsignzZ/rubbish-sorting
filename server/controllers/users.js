@@ -35,7 +35,7 @@ class UsersCtl {
       name: { type: 'string', required: true },
       account: { type: 'string', required: true},
       password: { type: 'string', required: true },
-      city_code: { type: 'string', required: true}
+      city: { type: 'string', required: true}
     });
     const { name } = ctx.request.body;
     const repeatedUser = await User.findOne({ name });
@@ -44,6 +44,8 @@ class UsersCtl {
     ctx.body = user;
   }
   async checkOwner(ctx, next) {
+    console.log(ctx.params.id)
+    console.log(ctx.state.user._id)
     if (ctx.params.id !== ctx.state.user._id) { ctx.throw(403, '没有权限'); }
     await next();
   }
@@ -70,13 +72,13 @@ class UsersCtl {
   }
   async login(ctx) {
     ctx.verifyParams({
-      name: { type: 'string', required: true },
+      account: { type: 'string', required: true },
       password: { type: 'string', required: true },
     });
     const user = await User.findOne(ctx.request.body);
     if (!user) { ctx.throw(401, '用户名或密码不正确'); }
-    const { _id, name } = user;
-    const token = jsonwebtoken.sign({ _id, name }, secret, { expiresIn: '1d' });
+    const { _id, account } = user;
+    const token = jsonwebtoken.sign({ _id, account }, secret, { expiresIn: '1d' });
     ctx.body = { token };
   }
   async listFollowing(ctx) {

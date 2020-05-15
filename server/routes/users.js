@@ -24,7 +24,7 @@ router.post('/login', login)
 router.get('/', find)
 router.post('/', create)
 router.get('/:id', findById)
-router.patch('/:id', auth, checkOwner, update)
+router.put('/:id', auth, checkOwner, update)
 router.delete('/:id', auth, checkOwner, del)
 
 // 关注列表和粉丝列表

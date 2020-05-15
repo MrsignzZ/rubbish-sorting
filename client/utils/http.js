@@ -1,7 +1,7 @@
 
 
 module.exports = {
-  http(url, method, isJson, params) {
+  http(url, method, isJson, params, token = '') {
     // let key = 'e005d87419cc79bbba945014010b7359' // 获取token，自行获取token和签名，token和签名表示每个接口都要发送的数据
     // let mode = 1 // 获取签名
     // let data = {
@@ -28,7 +28,8 @@ module.exports = {
         method,
         data,
         header: {
-          'content-type': type
+          'content-type': type,
+          'Authorization': 'Bearer ' + token
         },
         success(res) {
           if (res.statusCode == 200 && res.data.code == 200) {

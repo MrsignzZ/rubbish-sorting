@@ -29,7 +29,6 @@ class TrashesCtl {
       tip: { type: 'string' }
     });
     const { name, city } = ctx.request.body;
-    // console.log(name, city_code)
     const repeatedTrash = await Trash.findOne({ name, city });
     // console.log(repeatedTrash)
     if (repeatedTrash) { ctx.throw(409, '该垃圾已存在'); }
@@ -44,9 +43,8 @@ class TrashesCtl {
     ctx.verifyParams({
       name: { type: 'string', required: true },
       trash_type: { type: 'string', required: true },
-      city_code: { type: 'string', required: true },
       city: { type: 'string' },
-      ps: { type: 'string' }
+      tip: { type: 'string' }
     });
     const trash = await Trash.findByIdAndUpdate(ctx.params.id, ctx.request.body);
     if (!trash) { ctx.throw(404, '垃圾不存在'); }

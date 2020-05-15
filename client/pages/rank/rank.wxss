@@ -1,0 +1,37 @@
+page {
+  background-color: #0B0C3A;
+}
+.header {
+  margin-top: 100rpx;
+  width: 100%;
+  font-size: 50rpx;
+  text-align: center;
+  color: #A299FE;
+}
+.option {
+  width: 690rpx;
+  display: flex;
+  flex-direction: column;
+  margin: 40rpx 30rpx 0 30rpx;
+}
+.option .item {
+  margin-bottom: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  display: flex;
+  border-radius: 40rpx;
+  background-color: #f4f4f4;
+}
+.option .item .num {
+  width: 50rpx;
+  margin-left: 60rpx;
+  text-align: center;
+}
+.option .item .name {
+  flex: 1;
+  text-align: center;
+}
+.option .item .score {
+  width: 150rpx;
+  text-align: center;
+}
