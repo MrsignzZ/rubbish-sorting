@@ -126,5 +126,10 @@ Page({
     this.setData({
       index,
     })
+  },
+  rank() {
+    wx.navigateTo({
+      url: '/pages/rank/rank'
+    })
   }
 })

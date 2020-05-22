@@ -9,7 +9,7 @@
   </swiper>
   <view class="card">
     <view class="input">
-      <text class="addr">杭州</text>
+      <text class="addr">北京</text>
       <view class="icon-arrow"></view>
       <view class="search" bindtap="goTOSearch">
         <view class="icon-search"></view>
